@@ -43,13 +43,13 @@ public class LinkedListOfIntegerDetalhes {
             System.out.println("NEXT do TAIL recebeu o NODE...");
         }
         tail = n;
-        System.out.println("TAIL recebeu NODE [" + tail.element + "] na posição " + count);
+        System.out.println("TAIL recebeu NODE [" + tail.element + "] na posicao " + count);
         count++;
         System.out.println("COUNT incrementado: " + count);
     }
 
     /**
-     * Método add() para determinada posição
+     * Metodo add() para determinada posição
      * Insere um elemento em uma determinada posicao da lista.
      * @param index a posicao da lista onde o elemento sera inserido
      * @param element elemento a ser inserido
@@ -65,25 +65,25 @@ public class LinkedListOfIntegerDetalhes {
 
         // Cria o nodo
         Node n = new Node(element);
-        System.out.println("Criando novo NODE [" + n.element + "] para ser inserido na posição " + index);
+        System.out.println("Criando novo NODE [" + n.element + "] para ser inserido na posicao " + index);
 
         // Encadear o nodo na lista
         if (index == 0) { // se insercao no inicio
             if (count == 0) { // se a lista estava vazia
                 tail = n;
-                System.out.println("Lista vazia! TAIL recebe NODE [" + n.element + "] na primeira posição " + index);
+                System.out.println("Lista vazia! TAIL recebe NODE [" + n.element + "] na primeira posicao " + index);
             }
             else {
                 n.next = head;
                 System.out.println("NEXT do NODE recebe HEAD [" + head.element + "]");
             }
             head = n;
-            System.out.println("HEAD recebe NODE [" + n.element + "] na posição " + index);
+            System.out.println("HEAD recebe NODE [" + n.element + "] na posicao " + index);
         }
         else if (index == count) { // se insercao no fiim
             tail.next = n;
             tail = n;
-            System.out.println("Final da lista! TAIL recebe NODE [" + n.element + "] na posição " + index);
+            System.out.println("Final da lista! TAIL recebe NODE [" + n.element + "] na posicao " + index);
         }
         else { // se insercao no meio
             Node ant = head;
@@ -95,7 +95,7 @@ public class LinkedListOfIntegerDetalhes {
             n.next = ant.next;
             System.out.println("NEXT do NODE recebe NEXT do ANT [" + ant.element + "]");
             ant.next = n;
-            System.out.println("NEXT do ANT recebe NODE [" + n.element + "] na posição " + index);
+            System.out.println("NEXT do ANT recebe NODE [" + n.element + "] na posicao " + index);
         }
 
         // Atualiza o count
@@ -109,39 +109,39 @@ public class LinkedListOfIntegerDetalhes {
     /**********************************************************************************
 
     /**
-     * Método get()
+     * Metodo get()
      * Retorna o elemento de uma determinada posicao da lista.
-     * @param index a posição da lista
+     * @param index a posicao da lista
      * @return o elemento da posicao especificada
      * @throws IndexOutOfBoundsException se (index < 0 || index >= size())
      */
     public Integer get(int index) {
 
-        // Avalia se o índice está na faixa aceita (maior que 0 e menor ou igual ao tamanho da lista
+        // Avalia se o indice está na faixa aceita (maior que 0 e menor ou igual ao tamanho da lista
         if ((index < 0) || (index >= count)) {
             throw new IndexOutOfBoundsException();
         }
 
         System.out.println("\n--------- RECUPERANDO O VALOR EM POSICAO ESPECIFICA --------- ");
 
-        // Se o índica selecionado é o do último elemento, retorna tail
+        // Se o índica selecionado e o do último elemento, retorna tail
         if (index == count-1) {
-            System.out.println("Valor na posição " + index + " é [" + tail.element + "]");
+            System.out.println("Valor na posicao " + index + " e [" + tail.element + "]");
             return tail.element;
         }
 
-        System.out.println("Percorre a lista até chegar no índice especificado...");
+        System.out.println("Percorre a lista ate chegar no indice especificado...");
         // Cria um auxiliar com o valor de head
         Node aux = head;
         int c = 0;
-        // percorre todos os elementos até chegar o índice determinado
+        // percorre todos os elementos ate chegar o indice determinado
         while (c < index) {
             // associa ao próximo node
             System.out.println("[" + aux.element + "]");
             aux = aux.next;
             c++;
         }
-        System.out.println("Valor na posição " + index + " é [" + aux.element + "]");
+        System.out.println("Valor na posicao " + index + " e [" + aux.element + "]");
         return aux.element;
     }
 
@@ -151,7 +151,7 @@ public class LinkedListOfIntegerDetalhes {
      /**********************************************************************************
 
      /**
-     * Método set()
+     * Metodo set()
      * Substitui o elemento armanzenado em uma determinada posicao da lista pelo elemento indicado.
      * @param index a posicao da lista
      * @param element o elemento a ser armazenado na lista
@@ -168,11 +168,11 @@ public class LinkedListOfIntegerDetalhes {
         if (index == count-1) {
             Integer auxElem = tail.element;
             tail.element = element;
-            System.out.println("Troca do valor [" + auxElem + "] por [" + element + "] no índice " + index);
+            System.out.println("Troca do valor [" + auxElem + "] por [" + element + "] no indice " + index);
             return auxElem;
         }
 
-        System.out.println("Percorre a lista até chegar no índice especificado...");
+        System.out.println("Percorre a lista ate chegar no indice especificado...");
         Node aux = head;
         int c = 0;
         while (c < index) {
@@ -182,7 +182,7 @@ public class LinkedListOfIntegerDetalhes {
         }
         Integer auxElem = aux.element;
         aux.element = element;
-        System.out.println("Troca do valor [" + auxElem + "] por [" + element + "] no índice " + index);
+        System.out.println("Troca do valor [" + auxElem + "] por [" + element + "] no indice " + index);
 
         return auxElem;
     }
@@ -192,7 +192,7 @@ public class LinkedListOfIntegerDetalhes {
     /**********************************************************************************
 
     /**
-     * Método remove()
+     * Metodo remove()
      * Remove a primeira ocorrencia do elemento na lista, se estiver presente.
      * @param element o elemento a ser removido
      * @return true se a lista contem o elemento especificado
@@ -223,7 +223,7 @@ public class LinkedListOfIntegerDetalhes {
         Node aux = head.next; // referencia aponta para o elemento que esta sendo verificado
         System.out.println("AUX recebe NEXT DO HEAD...");
 
-        System.out.println("Percorre a lista até encontrar o elemento requisitado...");
+        System.out.println("Percorre a lista ate encontrar o elemento requisitado...");
         for (int i=1; i<count; i++) {
             System.out.println("[" + aux.element + "]");
             if (aux.element.equals(element)) { // se achou o elemento a ser removido
@@ -251,7 +251,7 @@ public class LinkedListOfIntegerDetalhes {
     }
 
     /**
-     * Método removeByIndex()
+     * Metodo removeByIndex()
      * Remove o elemento de uma determinada posicao da lista.
      * @param index a posicao da lista
      * @return o elemento que foi removido da lista
@@ -263,7 +263,7 @@ public class LinkedListOfIntegerDetalhes {
 
         System.out.println("\n--------- REMOVENDO VALOR EM POSICAO ESPECIFICA --------- ");
 
-        System.out.println("Remover o valor da posição: " + index );
+        System.out.println("Remover o valor da posicao: " + index );
 
         // Se remocao do primeiro
         if (index == 0) {
@@ -278,7 +278,7 @@ public class LinkedListOfIntegerDetalhes {
 
         Node ant = head;
 
-        System.out.println("Percorre a lista até encontrar o índice requisitado...");
+        System.out.println("Percorre a lista ate encontrar o indice requisitado...");
         for (int i = 0; i < index - 1; i++) {
             ant = ant.next;
         }
@@ -303,7 +303,7 @@ public class LinkedListOfIntegerDetalhes {
     /**********************************************************************************
 
     /**
-     * Método contains()
+     * metodo contains()
      * Retorna true se a lista contem o elemento especificado.
      * @param element o elemento a ser testado
      * @return true se a lista contem o elemento especificado
@@ -313,7 +313,7 @@ public class LinkedListOfIntegerDetalhes {
         System.out.println("\n--------- VERIFICA SE VALOR ESTA CONTIDO NA LISTA --------- ");
         System.out.println("Valor a ser buscado [" + element + "]");
 
-        System.out.println("Percorre a lista até encontrar o índice requisitado...");
+        System.out.println("Percorre a lista ate encontrar o indice requisitado...");
         Node aux = head;
         while(aux != null) {
             if (aux.element.equals(element)) {
@@ -327,7 +327,7 @@ public class LinkedListOfIntegerDetalhes {
     }
 
     /**
-     * Método indexOf()
+     * metodo indexOf()
      * Retorna o indice da primeira ocorrencia do elemento na lista, ou -1 se a lista nao contem o elemento.
      * @param element o elemento a ser buscado
      * @return o indice da primeira ocorrencia do elemento na lista, ou -1 se a lista nao contem o elemento
@@ -337,11 +337,11 @@ public class LinkedListOfIntegerDetalhes {
         System.out.println("\n--------- APRESENTA O INDICE DE UM VALOR DA LISTA --------- ");
         System.out.println("Valor a ser buscado [" + element + "]");
 
-        System.out.println("Percorre a lista até encontrar o índice requisitado...");
+        System.out.println("Percorre a lista ate encontrar o indice requisitado...");
         Node aux = head;
         for(int i=0; i<count; i++) {
             if (aux.element.equals(element)) {
-                System.out.println("Valor encontrado na lista no índice: " + i);
+                System.out.println("Valor encontrado na lista no indice: " + i);
                 return i;
             }
             aux = aux.next;
@@ -351,7 +351,7 @@ public class LinkedListOfIntegerDetalhes {
     }
 
     /**
-     * Método isEmpty()
+     * metodo isEmpty()
      * @return true se a lista nao contem elementos
      */
     public boolean isEmpty() {
@@ -359,7 +359,7 @@ public class LinkedListOfIntegerDetalhes {
     }
 
     /**
-     * Método size()
+     * metodo size()
      * @return o numero de elementos da lista
      */
     public int size() {
@@ -367,7 +367,7 @@ public class LinkedListOfIntegerDetalhes {
     }
 
     /**
-     * Método clear()
+     * metodo clear()
      * Esvazia a lista
      */
     public void clear() {
@@ -377,8 +377,8 @@ public class LinkedListOfIntegerDetalhes {
     }
 
     /**
-     * Método toString()
-     * Sobrescrita do método toString padrão para a impressão em formato específico
+     * metodo toString()
+     * Sobrescrita do metodo toString padrão para a impressão em formato específico
      */
     @Override
     public String toString() {
@@ -416,24 +416,24 @@ public class LinkedListOfIntegerDetalhes {
 
 
       /**
-      * Método int[] subList(int fromIndex, int toIndex)
+      * metodo int[] subList(int fromIndex, int toIndex)
       * Cria um novo arranjo de valores inteiros a partir de um escopo definido da lista original
-      * @param fromIndex o índice inicial do escopo (incluído)
-      * @param toIndex o índice final do escopo (não incluído)
+      * @param fromIndex o indice inicial do escopo (incluído)
+      * @param toIndex o indice final do escopo (não incluído)
       * @return retorna um arranjo com os elementos da lista original
       */
 
 
 
     /**
-     * Método reverse()
+     * metodo reverse()
      * inverte a lista encadeada
      */
 
 
 
      /**
-      * Método int countOccurrences(int element)
+      * metodo int countOccurrences(int element)
       * Conta a quantidade de ocorrência de um elemento na lista encadeada
       * @param element valor inteiro correspondente ao dado a ser verificado
       * @return quantidade de vezes que o valor foi encontrado
