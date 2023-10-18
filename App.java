@@ -12,8 +12,12 @@ public class App {
 
         System.out.println(lista);
 
-        //Reordenacao da lista usando o metodo BubbleSort
-        lista.bubbleSort(lista);
+        //Reordenacao crescente da lista usando o metodo BubbleSort
+        lista.bubbleSortCre(lista);
+        System.out.println(lista);
+
+        //Reordenacao decrescente da lista usando o metodo BubbleSort
+        lista.bubbleSortDec(lista);
         System.out.println(lista);
 
 

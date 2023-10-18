@@ -396,12 +396,26 @@ public class LinkedListOfIntegerDetalhes {
         return s.toString();
     }
 
-    //Ordenacao usando o metodo BubbleSort
-    public static void bubbleSort(LinkedListOfIntegerDetalhes lista) {
+    //Ordenacao crescente usando o metodo BubbleSort
+    public static void bubbleSortCre(LinkedListOfIntegerDetalhes lista) {
         int i, j, aux, n = lista.size();
         for(i=0; i<(n-1); i++) {
             for (j=0; j<(n-i-1); j++) {
                 if (lista.get(j) > lista.get(j+1)) {
+                    aux = lista.get(j);
+                    lista.set(j, lista.get(j+1));
+                    lista.set(j+1,aux);
+                }
+            }
+        }
+    }
+
+    //Ordenacao decrescente usando o metodo de ordenacao BubbleSort
+    public static void bubbleSortDec(LinkedListOfIntegerDetalhes lista) {
+        int i, j, aux, n = lista.size();
+        for(i=0; i<(n-1); i++) {
+            for (j=0; j<(n-i-1); j++) {
+                if (lista.get(j) < lista.get(j+1)) {
                     aux = lista.get(j);
                     lista.set(j, lista.get(j+1));
                     lista.set(j+1,aux);
